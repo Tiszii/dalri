@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="img/coding.png" type="image/x-icon">
+        <title>Ass. programmatori</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bulma Version 0.9.0-->
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/hero.css">
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    </head>
+    <body>
+        <section class="hero is-info is-small">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <br>
+                    <p class="title is-1">
+                        Associazione WebDeveloper
+                    </p>
+                    <p class="subtitle">
+                        Realizzato da Dalri Tiziano
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </section>
+        <div class="box cta">
+            <nav class="level">
+                <div class="level-left">
+                    <div class = "dropdown">
+                        <div class = "dropdown-trigger">
+                            <button class = "button" aria-haspopup = "true" aria-controls = "dropdown-menu">
+                                <img src="img/bars-solid.png" width="20" height="20">
+                            </button>
+                        </div>
+                        <div class = "dropdown-menu" id = "dropdown-menu" role = "menu">
+                            <div class = "dropdown-content">
+                                <a href = "#arrivo2" class = "dropdown-item">Cosa facciamo?</a>
+                                <a href = "#arrivo1" class = "dropdown-item">Chi siamo?</a>
+                                <hr class = "dropdown-divider">
+                                <a href = "login.html" class = "dropdown-item">Accedi</a>
+                                <a href = "#" class = "dropdown-item">Registrati</a>
+                            </div>
+                        </div>
+                        <a name="arrivo2"></a>
+                    </div>
+                    <script>
+                        //DOMContentLoaded - it fires when initial HTML document has been completely loaded
+                        document.addEventListener('DOMContentLoaded', function () {
+                            // querySelector - it returns the element within the document that matches the specified selector
+                            var dropdown = document.querySelector('.dropdown');
+
+                            //addEventListener - attaches an event handler to the specified element.
+                            dropdown.addEventListener('click', function (event) {
+
+                                //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
+                                event.stopPropagation();
+
+                                //classList.toggle - it toggles between adding and removing a class name from an element
+                                dropdown.classList.toggle('is-active');
+                            });
+                        });
+                    </script>    
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p>Questa associazione si occupa della creazioni di pagine web</p>
+                    </div>
+                </div>
+                <div class="level-right has-text-centered">
+                    <div>
+                        <div class="buttons">
+                            <form action="login.html">
+                                <button class="button is-info" type="submit">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <br>
+        <section class="container">
+            <div class="columns features">
+                <div class="columns features">
+                    <!-- colonna 1-->
+                    <div class="column is-4 modal-button" data-target="modal-card">
+                        <div class="card is-shady">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="img/colonna1.png" alt="foto1">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h4>Miglioriamo pagine web<br></h4>
+                                    <p>Chiunque possieda una pagina web poco attraente dal punto di vista grafico, saremo lieti di creare per voi una pagina su misura.La pagina sarà creata senza nessun costo entro un mese dal nostro team :)</p>
+                                    <br>
+                                    <span class="button is-link modal-button">Modal card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- colonna 2-->
+                    <div class="column is-4">
+                        <div class="card is-shady">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://matwrites.com/wp-content/uploads/2018/01/bulma.png"
+                                         alt="foto2" class="modal-button" data-target="modal-image2">
+                                </figure>
+                            </div>
+                            <div class="card-content  modal-button" data-target="modal-card2">
+                                <div class="content">
+                                    <h4>Utilizziamo il framework offerto da bulma</h4>
+                                    <p>Bulma è un framework CSS gratuito e open source basato su Flexbox ed è costruito con Sass. È reattivo al 100%, completamente modulare e disponibile gratuitamente.</p>
+                                    <a name="arrivo1"></a>
+                                    <br>
+                                    <span class="button is-link modal-button">Modal card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- colonna 3-->
+                    <div class="column is-4">
+                        <div class="card is-shady">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img
+                                        src="img/colonna3.png"
+                                        alt="foto3" class="modal-button" data-target="modal-image3">
+                                </figure>
+                            </div>
+                            <div class="card-content  modal-button" data-target="modal-card3">
+                                <div class="content">
+                                    <h4>L'obbiettivo è la modernizzazione</h4>
+                                    <p>Facendo volontariato siamo lieti di migliorare la vostra pagina gratis poiche siamo fermamente convinti che tuttora ci siano pagine web troppo "antiquate"</p>
+                                    <br>
+                                    <br>
+                                    <span class="button is-link modal-button">Modal card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!--footer -->
+        <!--  ===============
+          HERE BE MODALS
+          ===============  -->
+        <!-- prima colonna -->
+        <div id="modal-card" class="modal modal-fx-3dSlit">
+            <div class="modal-background"></div>
+            <div class="modal-content is-tiny">
+                <!-- content -->
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="img/colonna1.png" alt="foto1">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img
+                                        src="img/colonna1avatar.png"
+                                        alt="avatar">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-5">"Non siamo solo webdeloper, siamo di più"</p>
+                                <p class="subtitle is-6">@Cris - Presidente associazione</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Saremo lieti di creare il vostro sito dei sogni
+                            <a href="index.html">@Ass.WebDeveloper</a>.
+                            <a href="#">#html</a>
+                            <a href="#">#css</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <!-- end content -->
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+
+
+        <!-- seconda colonna -->
+        <div id="modal-card2" class="modal modal-fx-3dSlit">
+            <div class="modal-background"></div>
+            <div class="modal-content is-tiny">
+                <!-- content -->
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="https://matwrites.com/wp-content/uploads/2018/01/bulma.png" alt="foto2">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img
+                                        src="img/colonna2avatar.png"
+                                        alt="avatar">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-5">"Siamo a vostra disposizione per eventuali chiarimenti"</p>
+                                <p class="subtitle is-6">@Teresa - Segretaria associazione</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Tel-33344455666 Email-webdev@gmail.com
+                            <a href="index.html">@Ass.WebDeveloper</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <!-- end content -->
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+
+
+        <!-- terza colonna -->
+        <div id="modal-card3" class="modal modal-fx-3dSlit">
+            <div class="modal-background"></div>
+            <div class="modal-content is-tiny">
+                <!-- content -->
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="img/colonna3.png" alt="foto3">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img
+                                        src="img/colonna3avatar.png"
+                                        alt="avatar">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">"Grazie al nostro lavoro potrai finalmente avere la tua pagina"</p>
+                                <p class="subtitle is-6">@Gianfranco(La roccia) - Responsabile tecnico</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Il nostro team ben formato potrà soddisfare le tue richieste
+                            <br>
+                            <a href="index.html">@Ass.WebDeveloper</a>
+                            <a href="#">#miglioramenti</a>
+                            <a href="#">#obbiettivi</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <!-- end content -->
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+
+        <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+        <script src="../js/wild.js"></script>
+
+        <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            //The first argument are the elements to which the plugin shall be initialized
+                            //The second argument has to be at least a empty object or a object with your desired options
+                            OverlayScrollbars(document.querySelectorAll("body"), {});
+                        });
+        </script>
+
+    </body>
+</html>
