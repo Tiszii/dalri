@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="img/coding.png" type="image/x-icon">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel='stylesheet'
+              href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bulma Version 0.9.0-->
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/hero.css">
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <script src=”verificalogin.js”></script>
+    </head>
+    <body>
+        <section class="hero is-info is-small">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <br>
+                    <p class="title is-1">
+                        Login
+                    </p>
+                    <p class="subtitle">
+                        Realizzato da Dalri Tiziano
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </section>
+        <div class="box cta">
+            <nav class="level">
+                <div class="level-left">
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p>Accedi per un preventivo</p>
+                    </div>
+                </div>
+                <div class="level-right has-text-centered">
+                    <div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section class="container">
+            <p class="level-item" style="font-size:40px">Accedi</p>
+            <br>
+            <br>
+            <div class="level-item">
+                <form action="#" method="POST" enctype="multipart/form-data" name="formLogin">
+                    <div class="field" id="email">
+                        <div class="control">
+                            <input class="input is-medium" type="email" placeholder="Email (@buonarroti.tn.it)" name="email" id="email" pattern="[a-z0-9._%+-]+@buonarroti.tn.it">
+                        </div>
+                    </div>
+                    <div class="field" id="password">
+                        <div class="control">
+                            <input class="input is-medium" type="password" placeholder="Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="level-item">
+                        <button class="button is-info" type="submit">Invia</button>
+                    </div>
+                    <br>
+                    <small><em>Non sei ancora registrato?</em></small>
+                    <a href="SignUp.html" class="subtitle colored is-10">Registrati ora!</a>
+                    <br><br><br>
+                </form>
+        </section>
+</html>
