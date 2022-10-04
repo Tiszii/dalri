@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Forza 4</title>
+    <script src="forza4.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Forza 4</h1>
+      <hr/>
+      <span id="error"></span>
+      <span id="first_page"></span>
+        <h2>Inserire il nome dei giocatori</h2>
+        <div>
+          <input type="text" id="player1" placeholder="Giocatore 1" style="margin-right:20px;"/>
+          <input type="text" id="player2" placeholder="Giocatore 2" style="margin-right:20px;"/>
+          <a href="#" class="btn btn-default" onclick="initPvP()" id="button">Gioca</a>
+        </div>
+        <br>
+        <br>
+        <br>
+ 
+      <main id="second_page" style="display: none;">
+        <main id="header">
+          <h4>Giocatore 1: <span id="player1header" class="text-danger"></span></h4>
+          <h4>Giocatore 2: <span id="player2header" class="text-warning"></span></h4>
+        </main>
+        <p id="turnString">
+          Turno di <span id="turn"></span>
+        </p>
+        <table id="table"></table>
+      </main>
+    </div>
+  </body>
 </html>
