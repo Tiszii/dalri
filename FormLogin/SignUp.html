@@ -71,7 +71,7 @@
                     <div class="field">
                         <div class="control">
                             <!--<input class="input is-medium" type="email" placeholder="Email" name="email" id="femail" pattern="[a-z]*\.[a-z][a-z0-9]*@buonarroti.tn.it">-->
-                            <input class="input is-medium" type="text" placeholder="Email" name="email" id="femail" pattern="[a-z]*\.[a-z][a-z0-9]*">
+                            <input class="input is-medium" type="text" placeholder="Email" name="email" id="femail" pattern="[a-z]*\.[a-z][a-z0-9]*" required="">
                             <input class="input is-medium" type="text" name="dominio" id="dominio" value="@buonarroti.tn.it" readonly="" style="background-color: lightskyblue">
                         </div>
                     </div>
@@ -126,11 +126,9 @@
                     <br>
                     <script type="text/javascript">
                         function valida() {
-                            var PrimaParteEmail = document.getElementById("email");
-                            var SecondaParteEmail = document.getElementById("dominio");
-                            var email = SommaEmail(PrimaParteEmail, SecondaParteEmail);
-                            //PrimaParteEmail.setCustomValidity("Ciao" + email);
-                            alert("Ciao " + email);
+                            document.getElementById("email").setCustomValidity(SommaEmail());
+
+
                             /*
                              password = document.getElementById("password");
                              confirmPassword = document.getElementById("Cpassword");
@@ -138,7 +136,6 @@
                              password.setCustomValidity("La password non corrispondono o le password non sono scritte correttamente");
                              }
                              */
-
                         }
 
                         function validatePassword() {
@@ -164,7 +161,10 @@
                              return ret;
                              */
                         }
-                        function email(PrimaParteEmail, SecondaParteEmail) {
+                        function email() {
+                            var PrimaParteEmail = document.getElementById("email").value;
+                            alert("Prima parte "+PrimaParteEmail);
+                            var SecondaParteEmail = document.getElementById("dominio").value;
                             return PrimaParteEmail += SecondaParteEmail;
                         }
                     </script>
