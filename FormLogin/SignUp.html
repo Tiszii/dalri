@@ -52,51 +52,84 @@
         </div>
         <br>
         <section class="container">
-            <p class="level-item" style="font-size:40px">Registrati qui sotto!</p>
-            <br><br><br>
-            <form action="/action_page_binary.php" method="get" enctype="multipart/form-data">
-                <div class="columns is-multiline">
-                    <div class="column is-8 is-offset-2 register">
-                        <div class="columns">
-                            <div class="column left">
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input is-medium" type="text" placeholder="Nome" name="nome" id="fnome" pattern="[A-Za-z]{4,15}">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input is-medium" type="text" placeholder="Cognome" name="cognome" id="fcognome" pattern="[A-Za-z]{4,15}">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input is-medium" type="email" placeholder="Email" name="email" id="femail" pattern="[a-z0-9._%+-]+@buonarroti.tn.it">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input is-medium" type="password" placeholder="Password" name="password" id="fpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                                    </div>
-                                </div>
-                                <br>
-                                <br>       
-                                <div class="level-item">
-                                    <button class="button is-info" name="btnSubmit">Submit</button>
-                                </div> 
-                                <br>
-                            </div>
-                            <div class="column right has-text-centered">            
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input is-medium" type="date" placeholder="Date" name="date" id="fdate">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <!-- ciao-->
+            <p class="level-item" style="font-size:40px">Accedi</p>
+            <br>
+            <br>
+            <div class="level-item">
+                <form action="#" method="POST" enctype="multipart/form-data" name="formRegistrazione">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="text" placeholder="Nome" name="nome" id="fnome" pattern="[A-Za-z]{4,15}">
                         </div>
                     </div>
-            </form>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="text" placeholder="Cognome" name="cognome" id="fcognome" pattern="[A-Za-z]{4,15}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="email" placeholder="Email" name="email" id="femail" pattern="[a-z0-9._%+-]+@buonarroti.tn.it">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="password" placeholder="Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="password" placeholder="Conferma password" name="ConfirmPassword" id="Cpassword">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="text" placeholder="Cod.F" name="CF" id="CF" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="text" placeholder="IVA" name="IVA" id="IVA" pattern="/^[0-9]{11}$/">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="tel" placeholder="Telefono" name="Telefono" id="Telefono" pattern="/^+91(7\d|8\d|9\d)\d{9}$/">
+                        </div>
+                    </div>
+                    <br>
+                    <script type="text/javascript">
+                        function validatePassword() {
+                            var password = document.getElementById('password').value;
+                            var confirmPassword = document.getElementById('Cpassword').value;
+                            var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{8,30}$/;
+                            if (password.length < 8) {
+                                return false;
+                            }
+                            if (!regularExpression.test(password)) {
+                                alert("La password deve contenere almeno un carattero minuscolo, uno maiuscolo, un numero e un carattere speciale");
+                                return false;
+                            }
+                            if (password !== confirmPassword) {
+                                alert("La password non corrisponde");
+                                return false;
+                            }
+                        }
+                    </script>
+                    <br>
+                    <br>
+                    <div class="level-item">
+                        <button class="button is-info" type="submit" onclick="validatePassword()">Invia</button>
+                    </div>
+                    <br>
+                </form>
         </section>
     </body>
+</html>
