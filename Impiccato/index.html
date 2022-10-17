@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="it">
+    <head>
+
+        <title>Impiccato - JavaScript</title>
+
+        <script type="text/javascript">
+
+            var gioca = true;
+            var Parole = new Array("SAIBAL", "HTMLIT", "CASA", "VALENTE");
+
+            var DaIndovinare = "";
+            var MostraParola = "";
+            var LettereUsate = "";
+            var NonIndovinate = 0;
+
+            function selectLetter(L)
+            {
+                if (gioca == false)
+                {
+                    return;
+                }
+
+                if (LettereUsate.indexOf(L) != -1)
+                {
+                    return;
+                }
+
+                LettereUsate += L;
+                document.game.LettereUsate.value = LettereUsate;
+
+                if (DaIndovinare.indexOf(L) != -1)
+                {
+                    // Lettere corrette indovinate
+                    pos = 0;
+                    temp = MostraParola;
+
+                    while (DaIndovinare.indexOf(L, pos) != -1)
+                    {
+                        pos = DaIndovinare.indexOf(L, pos);
+                        fine = pos + 1;
+
+                        inizioTesto = temp.substring(0, pos);
+                        fineTesto = temp.substring(fine, temp.length);
+
+                        temp = inizioTesto + L + fineTesto;
+                        pos = fine;
+                    }
+
+                    MostraParola = temp;
+                    document.game.MostraParola.value = MostraParola;
+
+                    if (MostraParola.indexOf("#") == -1)
+                    {
+                        // Vinto
+                        alert("Vinto!");
+                        gioca = false;
+                    }
+                } else
+                {
+                    // lettere non indovinate
+                    NonIndovinate += 1;
+                    eval("document.hm.src=\"img/impiccato" + NonIndovinate + ".png\"");
+
+                    if (NonIndovinate == 7)
+                    {
+                        // perso
+                        alert("Perso!");
+                        gioca = false;
+                    }
+                }
+            }
+
+            function reset()
+            {
+                selectWord();
+                document.game.LettereUsate.value = "";
+                LettereUsate = "";
+                NonIndovinate = 0;
+                document.hm.src = "img/impiccato1.png";
+            }
+
+            function selectWord()
+            {
+                gioca = true;
+                rand = Math.round(Math.random() * (Parole.length - 1));
+                DaIndovinare = Parole[rand];
+
+                // Mostra la parola nascosta con #
+                ParolaN = creaStringa(DaIndovinare);
+                document.game.MostraParola.value = ParolaN;
+                MostraParola = ParolaN;
+            }
+
+            function creaStringa(m)
+            {
+                str = "";
+
+                for (i = 0; i < m.length; i++)
+                {
+                    str += "#";
+                }
+                return str;
+            }
+
+        </script>
+
+    </head>
+    <body onLoad="reset();
+        return true;">
+        <br /><br />
+        <div align="center">
+
+
+            <p><img src="hmstart.gif" height="125" width="75" name="hm"></p>
+            <form name="game">
+                <p>Parola: <input type="text" name="MostraParola"><br>
+                    Lettere: <input type="text" name="LettereUsate"></p>
+            </form>
+
+            <p><a href="javascript:selectLetter('A');">A</a> | 
+                <a href="javascript:selectLetter('B');">B</a> | 
+                <a href="javascript:selectLetter('C');">C</a> | 
+                <a href="javascript:selectLetter('D');">D</a> | 
+                <a href="javascript:selectLetter('E');">E</a> | 
+                <a href="javascript:selectLetter('F');">F</a> | 
+                <a href="javascript:selectLetter('G');">G</a> | 
+                <a href="javascript:selectLetter('H');">H</a> | 
+                <a href="javascript:selectLetter('I');">I</a> | 
+                <a href="javascript:selectLetter('J');">J</a> | 
+                <a href="javascript:selectLetter('K');">K</a> | 
+                <a href="javascript:selectLetter('L');">L</a>
+                <a href="javascript:selectLetter('M');">M</a><br>
+                <a href="javascript:selectLetter('N');">N</a> | 
+                <a href="javascript:selectLetter('O');">O</a> | 
+                <a href="javascript:selectLetter('P');">P</a> | 
+                <a href="javascript:selectLetter('Q');">Q</a> | 
+                <a href="javascript:selectLetter('R');">R</a> | 
+                <a href="javascript:selectLetter('S');">S</a> | 
+                <a href="javascript:selectLetter('T');">T</a> | 
+                <a href="javascript:selectLetter('U');">U</a> | 
+                <a href="javascript:selectLetter('V');">V</a> | 
+                <a href="javascript:selectLetter('W');">W</a> | 
+                <a href="javascript:selectLetter('X');">X</a> | 
+                <a href="javascript:selectLetter('Y');">Y</a> | 
+                <a href="javascript:selectLetter('Z');">Z</a></p>
+
+            <p><a href="javascript:reset()">Parti/Ricomincia</a></p>
+
+
+        </div>
+        <br /><br />
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Impiccato</title>
+        <meta charset="UTF-8">     
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="impiccato.js"></script>
+    </head>
+    <body>
+        <img src="" height="125" width="75" name="hm">        
+        <form name="game">
+            <p>
+                Parola: 
+                <input type="text" name="displayWord" id="Parola">
+                <br>
+                Lettere: 
+                <input type="text" name="usedLetters" id="Lettere">
+            </p>
+        </form>
+        <button onclick="inizio()">Inizia</button>
+        <br>
+        <input type="hidden" name="parola" id="ParolaNascosta">
+    </body>
+</html>
+-->
