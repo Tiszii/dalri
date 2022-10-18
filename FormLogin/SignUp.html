@@ -126,7 +126,7 @@
                     <script type="text/javascript">
                         function valida() {
                             alert(SommaEmail());
-                            document.getElementById("email").formnovalidate = SommaEmail();
+                            document.getElementById("email").value = SommaEmail();
 
                             /*
                              password = document.getElementById("password");
@@ -169,7 +169,7 @@
                     <br>
                     <br>
                     <div class="level-item">
-                        <button class="button is-info" type="submit" onclick="valida()">Invia</button>
+                        <button class="button is-info" type="submit" onsubmit="valida()">Invia</button>
                         <!-- onsubmit() -->
                     </div>
                     <br>
