@@ -4,16 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="img/coding.png" type="image/x-icon">
         <title>Registration</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel='stylesheet'
-              href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <!-- Bulma Version 0.9.0-->
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-        <link rel="stylesheet" type="text/css" href="../css/hero.css">
-        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <link rel="stylesheet" href="../bulma/css/bulma.min.css" />
+        <link rel="stylesheet" href="../bulma/css/modal-fx.min.css" />
     </head>
     <body>
         <section class="hero is-info is-small">
@@ -54,7 +49,7 @@
             <br>
             <br>
             <div class="level-item">
-                <form action="#" method="GET" enctype="multipart/form-data" name="formRegistrazione">
+                <form action="altra_pagina.php" method="GET" name="formRegistrazione" id="formRegistrazione">
                     <div class="field">
                         <div class="control">
                             <input class="input is-medium" type="text" placeholder="Nome" name="nome" id="fnome" pattern="[A-Za-z]{4,15}">
@@ -70,8 +65,8 @@
                     <div class="field">
                         <div class="control">
                             <!--<input class="input is-medium" type="email" placeholder="Email" name="email" id="femail" pattern="[a-z]*\.[a-z][a-z0-9]*@buonarroti.tn.it">-->
-                            <input class="input is-medium" type="text" placeholder="Email" id="email" pattern="[a-z]*\.[a-z][a-z0-9]*" required="">
-                            <input class="input is-medium" type="text" id="dominio" value="@buonarroti.tn.it" readonly="" style="background-color: lightskyblue">
+                            <input class="input is-medium" type="text" placeholder="Email" id="email" name="email" pattern="[a-z]*\.[a-z][a-z0-9]*" required="">
+                            <input class="input is-medium" type="text" id="dominio" name="dominio" value="@buonarroti.tn.it" readonly="" style="background-color: lightskyblue">
                         </div>
                     </div>
                     <br>
@@ -123,57 +118,80 @@
                         </div>
                     </div>
                     <br>
-                    <script type="text/javascript">
-                        function valida() {
-                            alert(SommaEmail());
-                            document.getElementById("email").value = SommaEmail();
-
-                            /*
-                             password = document.getElementById("password");
-                             confirmPassword = document.getElementById("Cpassword");
-                             if (!validatePassword()) {
-                             password.setCustomValidity("La password non corrispondono o le password non sono scritte correttamente");
-                             }
-                             */
-                        }
-
-                        function validatePassword() {
-                            var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{8,30}$/;
-                            if (password.length >= 8 && regularExpression.test(password) && password == confirmPassword) {
-                                return true;
-                            } else {
-                                return false;
-                            }
-                            /*
-                             if (password.length < 8) {
-                             return ret;
-                             }
-                             if (!regularExpression.test(password)) {
-                             alert("La password deve contenere almeno un carattero minuscolo, uno maiuscolo, un numero e un carattere speciale");
-                             return ret;
-                             }
-                             if (password !== confirmPassword) {
-                             alert("La password non corrisponde");
-                             return ret;
-                             }
-                             ret=true;
-                             return ret;
-                             */
-                        }
-                        function SommaEmail() {
-                            var PrimaParteEmail = document.getElementById("email").value;
-                            var SecondaParteEmail = document.getElementById("dominio").value;
-                            return PrimaParteEmail += SecondaParteEmail;
-                        }
-                    </script>
                     <br>
                     <br>
                     <div class="level-item">
-                        <button class="button is-info" type="submit" onsubmit="valida()">Invia</button>
-                        <!-- onsubmit() -->
+                        <input class="button is-info" type="submit" value="Invia" name="btnA">
                     </div>
                     <br>
                     <br>
+                    <script>
+                        /*
+                         function valida() {
+                         
+                         alert(SommaEmail());
+                         document.getElementById("email").value = SommaEmail();
+                         
+                         
+                         password = document.getElementById("password");
+                         confirmPassword = document.getElementById("Cpassword");
+                         if (!validatePassword()) {
+                         password.setCustomValidity("La password non corrispondono o le password non sono scritte correttamente");
+                         }
+                         
+                         }
+                         
+                         function validatePassword() {
+                         var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{8,30}$/;
+                         if (password.length >= 8 && regularExpression.test(password) && password == confirmPassword) {
+                         return true;
+                         } else {
+                         return false;
+                         }
+                         
+                         if (password.length < 8) {
+                         return ret;
+                         }
+                         if (!regularExpression.test(password)) {
+                         alert("La password deve contenere almeno un carattero minuscolo, uno maiuscolo, un numero e un carattere speciale");
+                         return ret;
+                         }
+                         if (password !== confirmPassword) {
+                         alert("La password non corrisponde");
+                         return ret;
+                         }
+                         ret=true;
+                         return ret;
+                         
+                         }
+                         
+                         function SommaEmail() {
+                         form = document.getElementById("formRegistrazione");
+                         form.onsubmit = function () {
+                         PrimaParteEmail = document.getElementById("email").value;
+                         return PrimaParteEmail += document.getElementById("dominio").value;
+                         }
+                         }
+                         */
+                        email = document.getElementById("email");
+
+                        function validaEmail() {
+                            testo = email.value;
+
+                            if (testo.lastIndexOf("@") != -1)
+                                email.setCustomValidity("Rispetta il formato richiesto.");
+                        }
+                        email.onkeyup = validaEmail();
+
+                        form = document.getElementById("formRegistrazione");
+
+                        form.onsubmit = function () {
+                            dominio = document.getElementById("dominio");
+
+                            email.value = email.value + dominio.value;
+                        }
+
+                    </script>
                     <br>
                     <br>
                 </form>
