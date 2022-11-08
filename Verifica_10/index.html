@@ -4,16 +4,24 @@
         <title>Morra Cinese</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <main id="first-page">
             <h1>Morra cinese</h1>
+            <br>
             <form action="#" method="POST" name="formInizio" id="formInizio">
                 <input class="input is-medium" type="text" placeholder="Nome(Max 15 caratteri)" name="nome" id="nome" pattern="[A-Za-z]{4,15}">
                 <br>
                 <input class="input is-medium" type="number" placeholder="Numero giocate" name="mani" id="mani" pattern="[1-10]{1}">
                 <br>
             </form>
+            <br>
+            <br>
             <input type="submit" id="submit" onclick="inizia()" value="Gioca">
         </main>
         <main id="second-page" style="display: none">
