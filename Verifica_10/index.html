@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Morra Cinese</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main id="first-page">
+            <h1>Morra cinese</h1>
+            <form action="#" method="POST" name="formInizio" id="formInizio">
+                <input class="input is-medium" type="text" placeholder="Nome(Max 15 caratteri)" name="nome" id="nome" pattern="[A-Za-z]{4,15}">
+                <br>
+                <input class="input is-medium" type="number" placeholder="Numero giocate" name="mani" id="mani" pattern="[1-10]{1}">
+                <br>
+            </form>
+            <input type="submit" id="submit" onclick="inizia()" value="Gioca">
+        </main>
+        <main id="second-page" style="display: none">
+            <h1>Morra cinese</h1>
+            <br>
+            <img src="img/carta_forbice_sasso.png" usemap="#image-map" id="img">
+            <map name="image-map">
+                <area coords="238,325,63,171" shape="rect" onclick="morra('carta')">
+                <area coords="1,0,180,129"    shape="rect" onclick="morra('forbice')">
+                <area coords="399,167,265,45" shape="rect" onclick="morra('sasso')">
+            </map>
+            <img src="" id="img1">
+            <img src="" id="img2">
+            <br>
+            <br>
+            <script type="text/javascript">
+                let nome;
+                let numeroMosse
+                let punteggioGiocatore = 0;
+                let punteggioComputer = 0;
+
+                function inizia() {
+                    nome = document.getElementById("nome").value;
+                    numeroMosse = document.getElementById("mani").value;
+                    document.getElementById("first-page").style.display = "none";
+                    document.getElementById("second-page").style.display = "";
+                }
+                function carta(scelta) {
+                    result = document.getElementById("msg");
+                    if (scelta === "sasso") {
+                        //giocatore ha vinto (carta_sx.png)
+                        document.getElementById("img").src = "";
+                        document.getElementById("img1").src = "img/carta_sx.png";
+                        document.getElementById("img2").src = "img/sasso_dx.png";
+                        punteggioGiocatore++;
+                        result.innerHTML = "Ha vinto il giocatore " + nome + ". Punteggio G:" + punteggioGiocatore + " , C:" + punteggioComputer;
+                    } else {
+                        //giocatore ha perso (forbice_dx.png)
+                        document.getElementById("img").src = "";
+                        document.getElementById("img1").src = "img/carta_sx.png";
+                        document.getElementById("img2").src = "img/forbice_dx.png";
+                        punteggioComputer++;
+                        result.innerHTML = "Ha vinto il computer. Punteggio G:" + punteggioGiocatore + " , C:" + punteggioComputer;
+                    }
+                }
+
+                function sasso(scelta) {
+                    result = document.getElementById("msg");
+                    if (scelta === "forbice") {
+                        //giocatore ha vinto (sasso_sx.png)
+                        document.getElementById("img").src = "";
+                        document.getElementById("img1").src = "img/sasso_sx.png";
+                        document.getElementById("img2").src = "img/forbice_dx.png";
+                        punteggioGiocatore++;
+                        result.innerHTML = "Ha vinto il giocatore " + nome + ". Punteggio G:" + punteggioGiocatore + " , C:" + punteggioComputer;
+                    } else {
+                        //giocatore ha perso (carta_dx.png)
+                        document.getElementById("img").src = "";
+                        document.getElementById("img1").src = "img/sasso_sx.png";
+                        document.getElementById("img2").src = "img/carta_dx.png";
+                        punteggioComputer++;
+                        result.innerHTML = "Ha vinto il computer. Punteggio G:" + punteggioGiocatore + " , C:" + punteggioComputer;
+                    }
+                }
+                function forbice(scelta) {
+                    result = document.getElementById("msg");
+                    if (scelta === "carta") {
+                        //giocatore ha vinto (forbice_sx.png)
+                        document.getElementById("img").src = "";
+                        document.getElementById("img1").src = "img/forbice_sx.png";
+                        document.getElementById("img2").src = "img/carta_dx.png";
+                        punteggioGiocatore++;
+                        result.innerHTML = "Ha vinto il giocatore " + nome + ". Punteggio G:" + punteggioGiocatore + " , C:" + punteggioComputer;
+                    } else {
+                        //giocatore ha perso (sasso_dx.png)
+                        document.getElementById("img").src = "";
+                        document.getElementById("img1").src = "img/forbice_sx.png";
+                        document.getElementById("img2").src = "img/sasso_dx.png";
+                        punteggioComputer++;
+                        result.innerHTML = "Ha vinto il computer. Punteggio G:" + punteggioGiocatore + " , C:" + punteggioComputer;
+                    }
+                }
+
+                function morra(mossa) {
+                    console.log(numeroMosse);
+                    console.log(nome);
+                    numeroMosse--;
+
+                    let scelta = scegli();
+                    console.log("Computer", scelta);
+                    console.log("Giocatore", mossa);
+                    if (mossa === scelta) {
+                        parità(mossa);
+                    }
+                    if (mossa === "forbice") {
+                        forbice(scelta);
+                    } else if (mossa === "sasso") {
+                        sasso(scelta);
+                    } else {
+                        carta(scelta);
+                    }
+                }
+
+                function scegli() {
+                    let scelta = ["sasso", "carta", "forbice"];
+                    return  scelta[Math.round(Math.random() * (scelta.length - 1))];
+                }
+
+                function parità(mossa) {
+                    document.getElementById("img").src = "img/" + mossa + "sx.png";
+                    document.getElementById("img").src = "img/" + mossa + "dx.png";
+                }
+
+                function endGame() {
+                    result = document.getElementById("msg");
+                    document.getElementById("img").src = "";
+                    document.getElementById("img1").src = "";
+                    document.getElementById("img2").src = "";
+                    if (punteggioGiocatore > punteggioComputer) {
+                        result.innerHTML = nome + " ha vinto";
+                    } else if (punteggioComputer > punteggioGiocatore) {
+                        result.innerHTML = "Il computer ha vinto";
+                    } else {
+                        result.innerHTML = "Parità";
+                    }
+                    document.getElementById("btn").style.display = 'None';
+                    demo();
+                }
+
+                function continua() {
+                    result = document.getElementById("msg");
+                    if (numeroMosse === 0) {
+                        endGame();
+                    } else {
+                        document.getElementById("img").usemap = "#image-map";
+                        document.getElementById("img").src = "img/carta_forbice_sasso.png";
+                        document.getElementById("img1").src = "";
+                        document.getElementById("img2").src = "";
+                        result.innerHTML = "Scelgi tra sasso carta o forbice";
+                    }
+                }
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+                async function demo() {
+                    result = document.getElementById("waiting");
+                    for (let i = 5; i >=0; i--) {
+                        console.log(`Wait ${i} seconds...`);
+                        result.innerHTML = (`Wait ${i} seconds...`);
+                        await sleep((i-(i-1)) * 1000);
+                       
+                    }
+                    window.location.reload(true);
+                }
+            </script>
+            <h1 id="msg">Scelgi tra sasso carta o forbice</h1>
+            <input onclick="continua()" type="button" readonly="" id="btn" name="msg" value="Continua" width="50">
+            <h3 id="waiting"></h3>
+        </main>
+    </body>
+</html>
